@@ -1,6 +1,6 @@
 {
   "name": "albaloshi-adventure-game",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "adventure game",
   "main": "index.js",
   "type": "module",

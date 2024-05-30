@@ -1,7 +1,8 @@
+#!/usr/bin/env node
 import inquirer from "inquirer"
 
 //-------------------------game variables ------------------//
-let enmies = ["Imran","Ghaffar","Hameed","Sameer"];
+let enmies = ["Imran","Ghaffar","Hameed","Sameer","Danish","Nawaz Sharif","Shabaz Sharif","Maryam Nawaz","Dildar","jameel"];
 let maxEnemyHealth = 75;
 let enemyAttacktoHerro = 25;
 
@@ -34,8 +35,8 @@ while(enemyHealth > 0){
     var options = await  inquirer.prompt({
         name: "ans",
         type: "list",
-        message: "What would your like to do",
-        choices: ["1. Attack","2. Take Health Potion","3. Run..","4. Other.."]
+        message: "What would you like to do",
+        choices: ["1. Attack","2. Take Health Potion","3. Run..","4. Exit.."]
     })
 
     if(options.ans === "1. Attack"){
@@ -67,11 +68,11 @@ while(enemyHealth > 0){
         console.log(`You run away from ${enemy}`);
         continue game;
     }else{
-        console.log("other option is selected");
+        console.log("You are successfuly exit from Mouth-Ka-Kail\n");
         break;
     }
 }
-if(options.ans !== "4. Other.."){
+if(options.ans !== "4. Exit.."){
 if(heroHealth < 1){
     console.log('You are out from battle you are too weak. ');
     break;
@@ -86,8 +87,6 @@ if(randomNumber < heatlhPottionDropChance){
     console.log(`your heatlh is ${heroHealth}`);
     console.log(`your heatlh potion is ${numHealthPottion}`);
 }
-}
-
 let userOption = await inquirer.prompt({
     name: "ans",
     type: "list",
@@ -99,6 +98,9 @@ if(userOption.ans === "1. continue"){
 }else{
     console.log("You are successfuly exit from Mouth-Ka-Kail\n");
     console.log('Thank you for playing');
+    break;
+}
+}else{
     break;
 }
 }

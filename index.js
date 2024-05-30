@@ -1,6 +1,7 @@
+#!/usr/bin/env node
 import inquirer from "inquirer";
 //-------------------------game variables ------------------//
-let enmies = ["Imran", "Ghaffar", "Hameed", "Sameer"];
+let enmies = ["Imran", "Ghaffar", "Hameed", "Sameer", "Danish", "Nawaz Sharif", "Shabaz Sharif", "Maryam Nawaz", "Dildar", "jameel"];
 let maxEnemyHealth = 75;
 let enemyAttacktoHerro = 25;
 //-------------------------Player variables ----------------//
@@ -23,8 +24,8 @@ game: while (running) {
         var options = await inquirer.prompt({
             name: "ans",
             type: "list",
-            message: "What would your like to do",
-            choices: ["1. Attack", "2. Take Health Potion", "3. Run..", "4. Other.."]
+            message: "What would you like to do",
+            choices: ["1. Attack", "2. Take Health Potion", "3. Run..", "4. Exit.."]
         });
         if (options.ans === "1. Attack") {
             let damageToEnemy = Math.floor(Math.random() * heroAttacktoEnemy + 1);
@@ -55,11 +56,11 @@ game: while (running) {
             continue game;
         }
         else {
-            console.log("other option is selected");
+            console.log("You are successfuly exit from Mouth-Ka-Kail\n");
             break;
         }
     }
-    if (options.ans !== "4. Other..") {
+    if (options.ans !== "4. Exit..") {
         if (heroHealth < 1) {
             console.log('You are out from battle you are too weak. ');
             break;
@@ -73,19 +74,22 @@ game: while (running) {
             console.log(`your heatlh is ${heroHealth}`);
             console.log(`your heatlh potion is ${numHealthPottion}`);
         }
-    }
-    let userOption = await inquirer.prompt({
-        name: "ans",
-        type: "list",
-        message: "You wanna play again?",
-        choices: ["1. continue", "2. exit"],
-    });
-    if (userOption.ans === "1. continue") {
-        console.log(`You are continue on your game \n`);
+        let userOption = await inquirer.prompt({
+            name: "ans",
+            type: "list",
+            message: "You wanna play again?",
+            choices: ["1. continue", "2. exit"],
+        });
+        if (userOption.ans === "1. continue") {
+            console.log(`You are continue on your game \n`);
+        }
+        else {
+            console.log("You are successfuly exit from Mouth-Ka-Kail\n");
+            console.log('Thank you for playing');
+            break;
+        }
     }
     else {
-        console.log("You are successfuly exit from Mouth-Ka-Kail\n");
-        console.log('Thank you for playing');
         break;
     }
 }
